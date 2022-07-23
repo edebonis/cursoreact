@@ -18,7 +18,7 @@ class BlogCard extends Component {
     return (
       <div className={classes.BlogCard}>
         <h3>{this.props.title}</h3>
-        <p>{this.props.opening_crawl}</p>
+        <img src = {this.props.description}></img>
         <p>
           Like Count:
           <span className={classes.LikeCount}> {this.state.likeCount}</span>
