@@ -2,12 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import Header from "./headerBlock";
 import reportWebVitals from "./reportWebVitals";
+import classes from "./header.module.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <div>
+      <header className={classes.Header}>
+        <Header />
+      </header>
       <App />
     </div>
   </React.StrictMode>

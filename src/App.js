@@ -4,45 +4,29 @@ import React, { Component } from "react";
 import { isArrayEmpty } from "./Utils";
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "https://api.disneyapi.dev/characters",
-});
+
 
 class App extends Component {
   state = {
     showBlog: false,
-    blogObjArr: [
-      {
-        id: 1,
-        title: "Blog Title 1",
-        opening_crawl:
-          "Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor",
-      },
-      {
-        id: 2,
-        title: "Blog Title 2",
-        opening_crawl:
-          "Lorem Ipsum Capsum Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor",
-      },
-      {
-        id: 3,
-        title: "Blog Title 3",
-        opening_crawl:
-          "Lorem Ipsum Dolores Lorem Ipsum Dolor Lorem Ipsum Dolor Lorem Ipsum Dolor",
-      },
-    ],
+    blogObjArr: [],
   };
-
+  
+  api = axios.create({
+    baseURL: "https://api.disneyapi.dev/characters?page=128",
+    //baseURL: "https://script.google.com/macros/s/AKfycbxPdffBUGo48tor2S51hPLIZYF8gK-60I36Z1_r7DcVfQqTXBFYQNZ39PJ7MyvAs66Dzw/exec?e=245"
+  });
+  
   constructor() {
     super();
     this.getData().then(() => this.hide());
   }
 
   getData = async () => {
-    await api
+    await this.api
       .get("/")
       .then((data) => (this.state.blogObjArr = data.data.data))
-      .then(d => console.log(d.data));
+      .then((d) => console.log(d.data));
   };
 
   hide = () => {
@@ -57,11 +41,7 @@ class App extends Component {
       ? []
       : this.state.blogObjArr.map((item, pos) => {
           return (
-            <BlogCard
-              key={pos}
-              title={item.name}
-              description={item.imageUrl}
-            />
+            <BlogCard key={pos} title={item.name} description={item.imageUrl} />
           );
         });
 
