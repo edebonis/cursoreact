@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import Header from "./headerBlock";
 import reportWebVitals from "./reportWebVitals";
-import classes from "./header.module.css"
+import classes from "./Header.module.css"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

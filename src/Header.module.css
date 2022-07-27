@@ -1,10 +1,15 @@
 .Header {
-  background-color: rgb(255, 255, 255);
+  background-color: black;
   margin: 16px;
   padding: 16px;
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgb(34, 82, 13);
+}
+
+.TextHeader {
+  color: white;
+  text-shadow: 0 2px 5px rgb(217, 223, 215);
 }
 
 

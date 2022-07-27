@@ -10,27 +10,51 @@ class App extends Component {
   state = {
     showBlog: false,
     blogObjArr: [],
+    page: 0,
+    url: "",
   };
   
-  api = axios.create({
-    baseURL: "https://api.disneyapi.dev/characters?page=128",
-    //baseURL: "https://script.google.com/macros/s/AKfycbxPdffBUGo48tor2S51hPLIZYF8gK-60I36Z1_r7DcVfQqTXBFYQNZ39PJ7MyvAs66Dzw/exec?e=245"
-  });
+  
   
   constructor() {
     super();
     this.getData().then(() => this.hide());
+    this.page = 0;
   }
 
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      10000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      page: this.page+=1
+    });
+    this.getData().then(() => this.hide());
+  }
+
+
   getData = async () => {
+    if (this.page > 149) this.page = 0;
+    this.page > 0 ? this.url = "https://api.disneyapi.dev/characters?page=" + this.page : this.url = "https://api.disneyapi.dev/characters";
+    this.api = axios.create({
+      baseURL: this.url,
+      //baseURL: "https://script.google.com/macros/s/AKfycbxPdffBUGo48tor2S51hPLIZYF8gK-60I36Z1_r7DcVfQqTXBFYQNZ39PJ7MyvAs66Dzw/exec?e=245"
+    });
     await this.api
-      .get("/")
+      .get("?page="+ this.page)
       .then((data) => (this.state.blogObjArr = data.data.data))
       .then((d) => console.log(d.data));
   };
 
   hide = () => {
-    console.log(this.state.blogObjArr);
     this.setState(() => {
       return { showBlog: true };
     });

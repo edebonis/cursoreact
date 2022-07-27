@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classes from "./Header.module.css";
 
 class Header extends Component {
   state = {
@@ -24,7 +25,7 @@ class Header extends Component {
 
   render() {
     return (
-      <h1>Son las {this.state.date.toLocaleTimeString()}</h1>
+      <h1 className={classes.TextHeader}>Son las {this.state.date.toLocaleTimeString()}</h1>
     );
   }
 }
