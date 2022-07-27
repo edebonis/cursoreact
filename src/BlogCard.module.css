@@ -1,10 +1,18 @@
+@font-face {
+  font-family:'disney' ;
+  src: local('disney'), url('./fonts/disney/Waltograph/waltograph42.otf')
+}
+
+
 .BlogCard {
   background-color: rgb(255, 255, 255);
   margin: 16px;
-  padding: 16px;
+  padding: 14px;
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgb(34, 82, 13);
+  font-family: 'disney';
+  text-align: center;
 }
 
 
@@ -18,7 +26,12 @@
 
 @media (min-width: 992px) {
   .BlogCard {
-    width: 30%;
+    width: 14%;
     display: inline-block;
   }
+}
+
+.Image {
+  height: 100px;
+  width: 100px;
 }

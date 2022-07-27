@@ -25,7 +25,7 @@ class Header extends Component {
 
   render() {
     return (
-      <h1 className={classes.TextHeader}>Son las {this.state.date.toLocaleTimeString()}</h1>
+      <h1 className={classes.Reloj}>{this.state.date.toLocaleTimeString()}</h1>
     );
   }
 }
