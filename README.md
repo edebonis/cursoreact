@@ -2,6 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+- **Node.js**: 18.x (LTS recommended)
+- **npm**: 8.x or higher
+
+You can check your versions with:
+
+```bash
+node --version
+npm --version
+```
+
+If you need to install or switch to Node.js 18, you can:
+
+- Use [nvm](https://github.com/nvm-sh/nvm): `nvm install 18 && nvm use 18`
+- Or download from [nodejs.org](https://nodejs.org/)
+
 ## Available Scripts
 
 In the project directory, you can run:
