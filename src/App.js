@@ -43,7 +43,7 @@ class App extends Component {
 
   getData = async () => {
     if (this.page > 149) this.page = 0;
-    this.page > 0 ? this.url = "https://api.disneyapi.dev/characters?page=" + this.page : this.url = "https://api.disneyapi.dev/characters";
+    this.page > 0 ? this.url = "https://api.disneyapi.dev/character?page=" + this.page : this.url = "https://api.disneyapi.dev/character";
     this.api = axios.create({
       baseURL: this.url,
       //baseURL: "https://script.google.com/macros/s/AKfycbxPdffBUGo48tor2S51hPLIZYF8gK-60I36Z1_r7DcVfQqTXBFYQNZ39PJ7MyvAs66Dzw/exec?e=245"
